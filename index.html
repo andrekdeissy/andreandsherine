@@ -3067,7 +3067,7 @@ img, svg{
       <div class="detail-time">5 : 30 PM</div>
 
       <div style="text-align:center;margin-top:28px">
-        <a class="map-btn" href="https://maps.app.goo.gl/g2Fq5oR2fJmZQxVx6" target="_blank">
+        <a class="map-btn" href="https://maps.app.goo.gl/vJTh2SrJEyK9b8zLA?g_st=ic" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           View on Maps
         </a>
@@ -3628,6 +3628,21 @@ audioBtn.addEventListener('click', () => {
     audioIcon.innerHTML = ICON_OFF;
   }
 });
+
+// ═══════ Stop music when the app/tab is backgrounded or closed (iOS Safari etc.) ═══════
+document.addEventListener('visibilitychange', () => {
+  if(document.hidden){
+    // Guest left the page (home button, app switch, closed Safari) → silence it.
+    if(!bgMusic.paused) bgMusic.pause();
+  } else {
+    // Guest came back → resume only if they still had music switched on.
+    if(audioBtn.classList.contains('playing') && bgMusic.paused){
+      bgMusic.play().catch(()=>{});
+    }
+  }
+});
+// Belt-and-suspenders for iOS Safari page caching / unload.
+window.addEventListener('pagehide', () => { bgMusic.pause(); });
 
 // ═══════ COPY WISH ID ═══════
 function copyWish(id, btn){
