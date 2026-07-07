@@ -1,0 +1,5 @@
+# Private wedding invitation — kept out of search engines.
+# To allow indexing: change the line below to "Disallow:" (empty)
+# and change the page's <meta name="robots"> to "index, follow".
+User-agent: *
+Disallow: /

@@ -1,0 +1,36 @@
+# ── André & Shérine wedding invitation — Apache / LiteSpeed config ──
+
+# Default document
+DirectoryIndex index.html
+
+# Correct MIME types
+AddType image/svg+xml            .svg
+AddType application/manifest+json .webmanifest
+AddType audio/mpeg               .mp3
+
+# ── Compression (text assets only; images/audio are already compressed) ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/manifest+json
+</IfModule>
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json image/svg+xml application/manifest+json
+</IfModule>
+
+# ── Caching ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Media + favicon: long cache (content is stable / fingerprinted by name)
+  ExpiresByType image/jpeg          "access plus 1 year"
+  ExpiresByType image/png           "access plus 1 year"
+  ExpiresByType image/svg+xml       "access plus 1 year"
+  ExpiresByType audio/mpeg          "access plus 1 year"
+  # HTML: always revalidate so edits go live immediately
+  ExpiresByType text/html           "access plus 0 seconds"
+</IfModule>
+
+# Optional: force HTTPS (uncomment after SSL is active)
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>

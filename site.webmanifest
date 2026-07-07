@@ -1,0 +1,12 @@
+{
+  "name": "André & Shérine — Wedding Invitation",
+  "short_name": "A & S Wedding",
+  "description": "Wedding invitation — Saturday, 29 August 2026 · Antelias, Lebanon.",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "theme_color": "#192334",
+  "background_color": "#192334",
+  "display": "standalone",
+  "start_url": "/"
+}
