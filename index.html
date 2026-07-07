@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>André &amp; Shérine — Wedding Invitation · 29.08.2026</title>
 <meta name="description" content="Together with their families, Andr&eacute; &amp; Sh&eacute;rine invite you to celebrate their wedding &mdash; Saturday, 29 August 2026 &middot; Antelias, Lebanon.">
 <meta name="author" content="Andr&eacute; &amp; Sh&eacute;rine">
@@ -270,7 +273,7 @@ body.locked{overflow:hidden;height:100vh}
   border-radius:2px;
   box-shadow:0 2px 10px rgba(44,62,88,.15);
   z-index:1;opacity:0;
-  transition:opacity .35s ease .2s,transform 1.5s var(--ease-out) .85s;
+  transition:opacity .5s ease .15s,transform 2s var(--ease-out) 1s;
   transform:translateY(0);
   overflow:hidden;
 }
@@ -283,7 +286,7 @@ body.locked{overflow:hidden;height:100vh}
 }
 .env-paper-content .ep-mono{font-family:'Italianno',cursive;font-size:36px;color:var(--blue-deep);line-height:1}
 .env-paper-content .ep-date{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--silver-deep);margin-top:6px}
-.env.opening .env-paper{opacity:1;transform:translateY(-48%)}
+.env.opening .env-paper{opacity:1;transform:translateY(-82%) scale(1.05)}
 
 /* Envelope flap */
 .env-flap{
@@ -291,7 +294,7 @@ body.locked{overflow:hidden;height:100vh}
   background:linear-gradient(180deg,var(--paper) 0%,var(--cream) 55%,var(--cream-warm) 100%);
   clip-path:polygon(0 0,100% 0,50% 100%);
   transform-origin:top;
-  transition:transform 1.6s cubic-bezier(.65,-.05,.35,1);
+  transition:transform 1.5s cubic-bezier(.33,0,.2,1);
   z-index:3;
   box-shadow:0 4px 10px rgba(157,131,84,.20);
 }
@@ -2736,6 +2739,16 @@ img, svg{
 }
 .rsvp-deadline sup{font-weight:700}
 
+/* ═══ V15 — larger type in the first (hero) section ═══ */
+.hero-stage-top{font-size:clamp(12px,3.3vw,15px) !important; letter-spacing:4px !important}
+.hero-from{font-size:clamp(13px,3.7vw,17px) !important; margin-bottom:22px !important}
+.hero-name{font-size:clamp(52px,13vw,96px) !important; line-height:.9 !important}
+.hero-amp{font-size:clamp(30px,7.5vw,56px) !important}
+.hero-meta-lbl{font-size:clamp(12px,3.4vw,15px) !important}
+.hero-date{font-size:clamp(22px,5.8vw,30px) !important; line-height:1.4 !important}
+.hero-place{font-size:clamp(16px,4.4vw,20px) !important}
+.hero-stage-bottom{font-size:clamp(13px,3.5vw,16px) !important}
+
 </style>
 </head>
 <body class="locked">
@@ -3037,7 +3050,7 @@ img, svg{
     <div class="eye-line rv"><span>The Invitation</span></div>
     <div class="flourish rv rv-d1"><svg viewBox="0 0 130 28"><use href="#flourish"/></svg></div>
     <p class="formal-intro rv rv-d1">With hearts full of joy and gratitude,</p>
-    <div class="families rv rv-d2"><span class="fam-line">The Kdeissy</span><span class="amp">&amp;</span><span class="fam-line">Mouez</span><span class="fam-sub">Families</span></div>
+    <div class="families rv rv-d2"><span class="fam-line">Kdeissy</span><span class="amp">&amp;</span><span class="fam-line">Mouez</span></div>
     <p class="formal-text rv rv-d2">request the honor of your presence at the marriage of their beloved son and daughter</p>
   </section>
 
@@ -3523,7 +3536,7 @@ function openInvitation(){
     runReveal();
     startCountdown();
     startAmbDrift();
-  }, 2400);
+  }, 3100);
 }
 envelope.addEventListener('click', openInvitation);
 envelope.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openInvitation(); } });
